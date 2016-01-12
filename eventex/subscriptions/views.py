@@ -12,13 +12,14 @@ def subscribe(request):
         if form.is_valid():
             mail.send_mail('Eventex - Confirmação de inscrição',
                            render_to_string(
-                               'subscriptions/subscription_email.txt',
-                               form.cleaned_data),
+                                   'subscriptions/subscription_email.txt',
+                                   form.cleaned_data),
                            'contato@eventex.com.br',
                            ['contato@eventex.com.br',
                             form.cleaned_data['email']])
 
-            messages.success(request, 'Inscrição realizada com sucesso!')
+            messages.success(request,
+                             'Inscrição realizada com sucesso! Verifique seu e-mail.')
 
             return HttpResponseRedirect('/inscricao/')
         else:
