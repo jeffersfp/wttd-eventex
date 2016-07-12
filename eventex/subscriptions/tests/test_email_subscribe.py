@@ -1,6 +1,6 @@
 from django.core import mail
 from django.test import TestCase
-from django.conf.global_settings import DEFAULT_FROM_EMAIL
+from django.conf import settings
 
 
 class SubscriptionEmailTest(TestCase):
@@ -17,11 +17,11 @@ class SubscriptionEmailTest(TestCase):
 
     def test_subscription_email_from(self):
         """Message sender must be DEFAULT_FROM_EMAIL from settings."""
-        expect = DEFAULT_FROM_EMAIL
+        expect = settings.DEFAULT_FROM_EMAIL
         self.assertEqual(self.email.from_email, expect)
 
     def test_subscription_email_to(self):
-        expect = [DEFAULT_FROM_EMAIL, 'somedude@mailinator.com']
+        expect = [settings.DEFAULT_FROM_EMAIL, 'somedude@mailinator.com']
         self.assertEqual(self.email.to, expect)
 
     def test_subscription_email_body(self):
