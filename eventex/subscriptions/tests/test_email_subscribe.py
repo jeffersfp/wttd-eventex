@@ -15,12 +15,12 @@ class SubscriptionEmailTest(TestCase):
         self.assertEqual(self.email.subject, expect)
 
     def test_subscription_email_from(self):
-        """Message sender must be 'contato@eventex.com.br"""
-        expect = 'contato@eventex.com.br'
+        """Message sender must be 'morena@eventex.com.br"""
+        expect = 'morena@eventex.com.br'
         self.assertEqual(self.email.from_email, expect)
 
     def test_subscription_email_to(self):
-        expect = ['contato@eventex.com.br', 'somedude@mailinator.com']
+        expect = ['morena@eventex.com.br', 'somedude@mailinator.com']
         self.assertEqual(self.email.to, expect)
 
     def test_subscription_email_body(self):
