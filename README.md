@@ -2,6 +2,10 @@
 
 Sistema de eventos encomendada pela Morena.
 
+[![Build Status](https://travis-ci.org/jeffersfp/wttd-eventex.svg?branch=master)](https://travis-ci.org/jeffersfp/wttd-eventex)
+[![Code Health](https://landscape.io/github/jeffersfp/wttd-eventex/master/landscape.svg?style=flat)](https://landscape.io/github/jeffersfp/wttd-eventex/master)
+
+
 ## Como desenvolver?
 
 1. Clone o repositório.
