@@ -19,7 +19,7 @@ Sistema de eventos encomendada pela Morena.
 git clone https://github.com/jeffersfp/wttd-eventex.git wttd
 cd wttd
 python -m venv .wttd
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 cp contrib/env-sample .env
 python manage.py test
 ```
