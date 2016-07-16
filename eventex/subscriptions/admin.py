@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.utils.timezone import now
+from django.utils.timezone import now, datetime
 from eventex.subscriptions.models import Subscription
 
 
@@ -18,7 +18,7 @@ class SubscriptionModelAdmin(admin.ModelAdmin):
     ordering = ('-created_at',)
 
     def subscribed_today(self, obj):
-        return obj.created_at == now().date()
+        return datetime.date(obj.created_at) == now().date();
 
     subscribed_today.short_description = 'inscrito hoje?'
     subscribed_today.boolean = True
