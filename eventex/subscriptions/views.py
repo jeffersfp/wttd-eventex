@@ -23,6 +23,7 @@ def create(request):
                       {'form': form})
 
     subscription = Subscription.objects.create(**form.cleaned_data)
+    subscription.save()
 
     # Send email
     _send_mail('Eventex - Confirmação de inscrição',
@@ -31,7 +32,7 @@ def create(request):
                'subscriptions/subscription_email.txt',
                {'subscription': subscription})
 
-    return HttpResponseRedirect('/inscricao/{}/'.format(subscription.pk))
+    return HttpResponseRedirect('/inscricao/{}/'.format(subscription.digest))
 
 
 def new(request):
@@ -39,9 +40,9 @@ def new(request):
     return render(request, 'subscriptions/subscription_form.html', context)
 
 
-def detail(request, pk):
+def detail(request, digest):
     try:
-        subscription = Subscription.objects.get(pk=pk)
+        subscription = Subscription.objects.get(digest=digest)
     except Subscription.DoesNotExist:
         raise Http404
     context = {'subscription': subscription}
